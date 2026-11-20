@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: edge-node
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /
+    envVars:
+      - key: UUID
+        value: 5bbdfbe0-ffe6-44f1-ad08-440f55bfae75
+      - key: WS_PATH
+        value: /
