@@ -1,0 +1,15 @@
+{
+  "name": "edge-node",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "forwardPorts": [10000],
+  "portsAttributes": {
+    "10000": {
+      "label": "edge-node",
+      "onAutoForward": "silent",
+      "visibility": "public"
+    }
+  },
+  "postCreateCommand": "npm install --omit=dev",
+  "postStartCommand": "nohup node server.js > /tmp/edge-node.log 2>&1 & sleep 1; echo started",
+  "remoteUser": "node"
+}
